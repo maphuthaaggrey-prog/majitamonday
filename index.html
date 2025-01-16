@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majita Mag</title>
+    <link rel="icon" href="MAJITA MONDAY .png"  type="image/png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="hero">
+        <div class="navbar">
+                <div>
+                    <a href="index.html"><img src="MAJITA MONDAY .png" class="logo"></a>
+                </div>
+            <nav>
+                <ul>
+                    <li>
+                            <i class="close-btn menu-close">
+                                <svg width="27px" height="27px" viewBox="-0.5 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                                    <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> <path d="M3 3.32001L21 21.32" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> </g>
+                                    </svg>
+                            </i>
+                       
+                    </li>
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="browsecreatives.html">Creatives</a></li>
+                    <li><a href="aboutmajita.html">Majita Mag</a></li>
+                    <li class="contactButton">Contact</li>
+                </ul>
+            </nav>           
+            <div>
+                <i class="menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="32px" height="32px"><path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z" fill="currentcolor"/></svg>
+
+                </i>
+
+            
+            </div>
+        </div>
+        <section class="hero-texts">
+            <img src="MAJITA MONDAY .png" class="homelogo">
+            <h4>The ultimate showcase for forward-thinking creatives! Each issue is packed with inspiring stories, stunning visuals, and expert insights from the most talented minds in the industry.</h4>
+            
+        </section>
+        <div class="line"></div>
+    </div>
+
+    <div class="highlighted-creatives">
+        <p class="heading">Highlighted  Creatives</p>
+        <p>
+            Unveiling the Essence: Exploring the Vibrant Tapestry of Culture and Creativity with Majita Mag!
+        </p>
+                <div class="creative-box">
+                    <div id="creatives">
+                        <a href="creative.html?creative=1"><img src="./images/Shane Artboard 1.jpg" class="highlighted-image"></a>
+                        <a href="creative.html?creative=2"><img src="./images/SOMETHINGTALL MONDAYArtboard 3.jpg" class="highlighted-image"></a>
+                        <a href="creative.html?creative=3"><img src="./images/COREY MONDAYArtboard 3.jpg" class="highlighted-image"></a>
+                    </div>
+                </div>
+            <div class="browse-btn">
+                <a href="browsecreatives.html"><button>Browse all</button></a>
+            </div>
+    </div>
+
+    <div class="footer-cont" id="footer-cont">
+        <form method="post" action='message.html'>
+            <p class="send-message">Contact Us</p>
+            <fieldset>
+                <label for="first-name">Enter Your Name: <input id="first-name" name="first-name" type="text"
+                        placeholder="Majita" />
+
+                </label>
+                <label for="email">Enter Your Email: <input id="email" name="email" type="email"
+                        placeholder="majitamagg@gmail.com" />
+
+                </label>
+                <label for="phone">Enter Phone number: <input id="phone" name="phone" type="tel"
+                        placeholder="0765987654" />
+
+                </label>
+                <label for="message">Message:
+                    <textarea id="message" name="message" rows="5" cols="30" placeholder="Your Enquiry"></textarea>
+                </label>
+            </fieldset>
+            <input type="submit" value="Submit" name="send-message" class="submit-btn" />
+            <h5 class="cancelBtn">Cancel</h5>
+        </form>        
+        </div>
+
+
+    <footer>
+        <div class="footer-div">
+            <div class="footer-left">
+                <img src="./MAJITA MONDAY .png" class="footerlogo">
+                <p class="vision">Our Vision</p>
+                <p class="footer-about">We believe that creativity has the power to transform and uplift. Our vision is to create a community that celebrates innovation, diversity, and self-expression. We're committed to featuring a wide range of creative talent, from established artists to emerging voices</p>
+                <div class="line"></div>
+
+            </div>
+            <div class="footer-right">
+                <form class="footer" id="emailForm">
+                    <label for="email">Enter your email</label>
+                    <input id="email" type="email" placeholder="Get latest news and updates">
+                    <span id="error" style="color:rgb(172, 41, 41);"></span>
+                    <input type="submit" value="Subscribe" name="submit">
+                </form>
+               
+                
+            </div>
+        </div>
+
+        <div class="quick-links">
+                
+            <a href="#"><p class="footer-about about-click termsButton ">Home</p></a>
+            <p class="footer-about about-click contactButton">Majita Mag</p>
+            <p class="footer-about about-click contactButton">All Creatives</p>
+            <p class="footer-about about-click contactButton">Contact Us</p>
+    </div>
+
+        
+    </footer>
+    <script src="index.js"></script>
+
+   
+</body>
+</html>
