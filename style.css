@@ -64,7 +64,7 @@ section {
     color: var(--tertiary);
 }
 .homelogo {
-    width: 80%;
+    width: 60%;
     margin: 0 auto 2em;
 }
 nav ul {
@@ -157,7 +157,7 @@ svg {
 
 h4 {
     text-align: start;
-    width: 80%;
+    width: 60%;
     margin: 1em auto;
     font-size: 18px;
     font-weight: normal;
