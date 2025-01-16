@@ -200,7 +200,7 @@ h4 {
     display: flex;
     justify-content: center;
  }
- .highlighted-creatives p {
+ .highlighted-creatives .home-text {
     text-align: center;
     width: 80%;
     margin: 1em auto;
