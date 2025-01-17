@@ -572,7 +572,9 @@ margin-top: 3px;
         text-align: start;
     }
     h4 {
+        width: 60%;
         text-align: start;
+        margin-left: 4.5em;
         font-weight: normal;
     }
 
