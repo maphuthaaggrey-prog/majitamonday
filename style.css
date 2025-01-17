@@ -654,6 +654,8 @@ margin-top: 3px;
     height: fit-content;
     margin: 1em;
     margin-left: 1em;
+    margin-bottom: 0;
+    
 }
 #creative-img {
     margin-right: 1.2em;
