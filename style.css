@@ -231,12 +231,14 @@ h4 {
     margin-bottom: 4em;
 }
  .browse-btn button {
-    height: 34px;
-    width: 130px;
-    font-size: 14px;
+    height: 30px;
+    width: 125px;
+    font-size: 12px;
     border: none;
-    border-radius: 7px;
+    border-radius: 35px;
     background-color: white;
+    font-weight: 600;
+    margin-top: 3em;
 }
 button a {
     text-decoration: none;
