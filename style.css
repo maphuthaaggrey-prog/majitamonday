@@ -264,14 +264,14 @@ button a {
 }
 #creative-name, #creative-questionOne, #creative-questionTwo , #creative-questionThree, #creative-questionFour   {
     font-size: 20px;
-    margin: .8em;
+    margin: 1.1em;
     margin-bottom: .3em;
 }
 #creative-name {
     display: none;
 }
 #creative-answerOne, #creative-answerTwo, #creative-answerThree, #creative-answerFour {
-    margin: 1em;
+    margin: 1.3em;
     margin-top: 0;
     margin-bottom: 2em;
     font-size: 15px;
