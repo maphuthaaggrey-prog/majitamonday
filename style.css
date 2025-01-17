@@ -285,9 +285,9 @@ button a {
     font-size: 18px;
 }
 #creative-img {
-    margin-left: 1.5em;
-    width: 89%;
-    border-radius: 2px;
+    margin-left: 1.7em;
+    width: 85%;
+    border-radius: 3px;
 }
 .highlighted-image:hover, #creative-image:hover {
     transform: scale(1.02);
