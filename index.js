@@ -8,7 +8,7 @@ subForm.addEventListener('submit', e => {
 
   // Show loading icon and change cursor to 'wait'
   loadingIcon.style.display = 'block';
-  document.body.style.cursor = 'wait';
+ 
 
   fetch(scriptURL, { method: 'POST', body: new FormData(subForm) })
     .then(response => {
