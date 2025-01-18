@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majita Mag</title>
+    <link rel="icon" href="MAJITA MONDAY .png"  type="image/png">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="hero-search">
+        <div class="navbar">
+         
+            <div class="go-back">
+                <a href="browsecreatives.html">
+                <i class="close-btn menu-close">
+                    <svg width="24px" height="24px" viewBox="-0.5 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"/>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+                        <g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> <path d="M3 3.32001L21 21.32" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> </g>
+                        </svg>
+                </i>
+            </a>
+
+            </div>
+        </div>
+      
+        <div class="search-bar" style="margin-top: 8em;">
+  
+                <input type="search" id="search-input" name="search" placeholder="Search...">
+                <button onclick="searchCreative()"><svg width="30px" height="30px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 11.1455C5.49956 8.21437 7.56975 5.69108 10.4445 5.11883C13.3193 4.54659 16.198 6.08477 17.32 8.79267C18.4421 11.5006 17.495 14.624 15.058 16.2528C12.621 17.8815 9.37287 17.562 7.3 15.4895C6.14763 14.3376 5.50014 12.775 5.5 11.1455Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.989 15.4905L19.5 19.0015" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></button>
+        
+        </div>
+
+
+    
+
+    <!-- Div to display the search results -->
+    <div id="creative-details" style="display: none; margin-top: 2em">
+        <!-- Container for multiple results -->
+        <div id="se-image"></div>
+    </div>
+
+
+        </div>
+        <script src="index.js"></script>
+        <script src="creatives.js"></script>
+        <script>
+            function searchCreative() {
+                const searchTerm = document.getElementById("search-input").value.toLowerCase();
+                const creativeDetails = document.getElementById("creative-details");
+                const resultsContainer = document.getElementById("se-image");
+    
+                // Clear previous search results
+                resultsContainer.innerHTML = "";
+    
+                if (searchTerm === "") {
+                    // If the search box is empty, hide the creative details
+                    creativeDetails.style.display = "none";
+                    return;
+                }
+  
+                // Filter creatives that match the search term
+                const matchingCreatives = creatives.filter(item => item.name.toLowerCase().includes(searchTerm));
+    
+                if (matchingCreatives.length > 0) {
+
+                    
+                    // Loop through matching creatives and display their details
+                    matchingCreatives.forEach(creative => {
+                        const creativeElement = document.createElement("a");
+                        creativeElement.href = `creative.html?creative=${creative.id}`;  
+                        creativeElement.innerHTML = `
+                            <img src="${creative.image}" id="image" alt="${creative.name} image">
+                            <p id='date-created'>${creative.name} - Monday, ${creative.date}</p>
+                           
+                        `;
+                        resultsContainer.appendChild(creativeElement);
+                    });
+    
+                    // Show the creative details div
+                    creativeDetails.style.display = "block";
+                } else {
+                    // If no match is found, show a message
+                    const noResultElement = document.createElement("div");
+                    noResultElement.innerHTML = `
+                        <p class="heading" style="width:90%; margin: auto !important">No creative found</p>
+                    `;
+                    resultsContainer.appendChild(noResultElement);
+                    creativeDetails.style.display = "block";
+                }
+            }
+    
+            // Add event listener for input event to trigger search as user types
+            document.getElementById("search-input").addEventListener("input", searchCreative);
+       
+    </script>
+
+    </body>
+    </html>
+    
