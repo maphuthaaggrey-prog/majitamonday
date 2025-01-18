@@ -1,3 +1,39 @@
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyKpPX1bBtrFYWsfGkt9cz1mX3ZUO5EeGJTRI3d9Ie142cLU2--yev5VUGorLxr-dhG/exec';
+const subForm = document.forms['submit-to-google-sheet'];
+const msg = document.getElementById('msg');
+const loadingIcon = document.getElementById('loading');
+
+subForm.addEventListener('submit', e => {
+  e.preventDefault();
+
+  // Show loading icon and change cursor to 'wait'
+  loadingIcon.style.display = 'block';
+  document.body.style.cursor = 'wait';
+
+  fetch(scriptURL, { method: 'POST', body: new FormData(subForm) })
+    .then(response => {
+      // Hide loading icon and reset cursor
+      loadingIcon.style.display = 'none';
+      document.body.style.cursor = 'default';
+
+      // Show success message
+      msg.innerHTML = "Thank You For Subscribing";
+      setTimeout(function(){
+        msg.innerHTML = "";
+      }, 5000);
+
+      // Reset form
+      subForm.reset();
+    })
+    .catch(error => {
+      console.error('Error!', error.message);
+      
+      // Hide loading icon and reset cursor even in case of error
+      loadingIcon.style.display = 'none';
+      document.body.style.cursor = 'default';
+    });
+});
+
 const menu = document.querySelector('nav ul');
 const menuBtn = document.querySelector('.menu-icon');
 const closeBtn = document.querySelector('.close-btn');
