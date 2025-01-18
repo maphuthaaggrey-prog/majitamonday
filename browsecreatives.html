@@ -11,13 +11,13 @@
     <div class="hero-page">
         <div class="navbar">
                 <div>
-                    <a href="index.html"><img src="MAJITA MONDAY .png" class="logo"></a>
+                    <a href="index.html"><img src="./icons/Group.svg" class="logo"></a>
                 </div>
             <nav>
                 <ul>
                     <li>
                         <i class="close-btn menu-close">
-                            <svg width="35px" height="35px" viewBox="-0.5 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+                            <svg width="24px" height="24px" viewBox="-0.5 0 25 25" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
                                 <g id="SVGRepo_bgCarrier" stroke-width="0"/>
                                 <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
                                 <g id="SVGRepo_iconCarrier"> <path d="M3 21.32L21 3.32001" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> <path d="M3 3.32001L21 21.32" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="currentcolor"/> </g>
@@ -32,34 +32,33 @@
             </nav>           
             <div>
              <i class="menu-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="32px" height="32px"><path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z" fill="currentcolor"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 50 50" width="30px" height="30px"><path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z" fill="currentcolor"/></svg>
 
                 </i>
             </div>
         </div>
     <div id="creative-details">
         <div class="highlighted-creatives">
-            <p class="heading">Meet the Creatives</p>
+            <p class="heading" style="margin-top: 7em;">Meet the Creatives</p>
             <p class="home-text">
-                Find inspiration in our curated selection of standout creatives!
+                Unveiling the Essence: Exploring the Vibrant Tapestry of Culture and Creativity with Majita Mag!
             </p>
-                    <div class="creative-box">
+            
+        <div class="search-bar">
+            <a href="search.html" class="search-anchor">
+                <input type="search" id="search-input" name="search" placeholder="Search...">
+                <button onclick="searchCreative()"><svg width="30px" height="30px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 11.1455C5.49956 8.21437 7.56975 5.69108 10.4445 5.11883C13.3193 4.54659 16.198 6.08477 17.32 8.79267C18.4421 11.5006 17.495 14.624 15.058 16.2528C12.621 17.8815 9.37287 17.562 7.3 15.4895C6.14763 14.3376 5.50014 12.775 5.5 11.1455Z" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M15.989 15.4905L19.5 19.0015" stroke="currentcolor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg></button>
+        
+        </div>
+            </a>
+        </div>
+                    <div class="creative-box">  
                         <div id="creatives">
-                            <a href="creative.html?creative=1"><img src="./images/Shane Artboard 1.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=2"><img src="./images/SOMETHINGTALL MONDAYArtboard 3.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=3"><img src="./images/COREY MONDAYArtboard 3.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=4"><img src="./images/VETERAN BEATX MONDAY P1.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=5"><img src="./images/Razor Artboard 1.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=6"><img src="./images/Artboard Tronic2.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=7"><img src="./images/Jason Monday.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=8"><img src="./images/Yvette, Majita.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=9"><img src="./images/SCAR MONDAY P1.1.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=10"><img src="./images/Priddy Artboard.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=11"><img src="./images/BARMAN ART.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=12"><img src="./images/Kimmo Artboard 3.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=13"><img src="./images/Nestraw Artboard 3.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=14"><img src="./images/MLK Artboard.jpg" class="highlighted-image"></a>
-                            <a href="creative.html?creative=15"><img src="./images/03 Baby.jpg" class="highlighted-image"></a>
+                            <div id="highlighted-image"></div>
+
                         </div>
                     </div>
 
@@ -68,7 +67,7 @@
 
 
     <div class="footer-cont" id="footer-cont">
-        <form action="message.html">
+        <form method="post" action="message.html">
             <p class="send-message">Contact Us</p>
             <fieldset>
                 <label for="first-name">Enter Your Name: <input id="first-name" name="first-name" type="text"
@@ -127,9 +126,43 @@
             
         </footer>
         <script src="index.js"></script>
-    
-    
-       
+        <script src="creatives.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', function () {
+                const highlightedImageContainer = document.getElementById('highlighted-image');
+                creatives.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+                highlightedImageContainer.innerHTML = '';
+            
+
+                creatives.forEach(creative => {
+                  
+                    const anchor = document.createElement('a');
+                    anchor.href = `creative.html?creative=${creative.id}`;  
+            
+
+                    const img = document.createElement('img');
+                    img.id = 'image';
+                    img.src = creative.image;  
+                    img.alt = `Creative ${creative.id}`; 
+                    
+                    const dateElement = document.createElement('p');
+                    dateElement.id = 'date-created';
+                    dateElement.innerText = `${creative.name} - Monday, ${creative.date}`
+                    anchor.appendChild(img);
+                    anchor.appendChild(dateElement);
+                    
+            
+                    // Append the <a> to the container
+                    highlightedImageContainer.appendChild(anchor);
+
+                });
+            });
+
+
+
+        </script>
+
     </body>
     </html>
     
