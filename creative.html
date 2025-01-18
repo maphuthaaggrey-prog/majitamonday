@@ -107,13 +107,18 @@
     
                 </div>
                 <div class="footer-right">
-                    <form class="footer" id="emailForm">
+                     <form class="footer" name="submit-to-google-sheet">
                         <label for="email">Enter your email</label>
-                        <input id="email" type="email" placeholder="Get latest news and updates">
+                        <input id="email" type="email" name="Emails" placeholder="Get latest news and updates" required>
                         <span id="error" style="color:rgb(172, 41, 41);"></span>
-                        <input type="submit" value="Subscribe" name="submit">
-                    </form>
-                   
+                        <input type="submit" style="cursor: pointer;">
+                        <p style="color: rgb(24, 117, 24); margin-top: 10px; font-weight: 600;" id="msg"></p>
+                        
+                        <!-- Loading Icon (hidden by default) -->
+                        <div id="loading" style="display:none; text-align: center; margin-top: -2.5em;">
+                          <img src="https://i.imgur.com/llF5iyg.gif" alt="Loading" style="width: 25px; height: 25px;">
+                        </div>
+                  </form>
                     
                 </div>
             </div>
