@@ -39,7 +39,7 @@ body, html {
 
 }
 .hero {
-    background-image: url(./images/Desktop.png);
+    background-image: url(./images/background.png);
     height: 100vh;
     width: 100%;
     background-size: cover;             
