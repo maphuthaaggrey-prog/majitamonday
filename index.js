@@ -5,6 +5,8 @@ const contact = document.querySelector('.footer-cont');
 const contactBtn = document.querySelectorAll('.contactButton');
 const cancelBtn = document.querySelector('.cancelBtn');
 
+
+
 menuBtn.addEventListener('click', () => {
     menu.classList.add('open')
     contact.classList.remove('open-cont')
@@ -90,44 +92,46 @@ form.addEventListener('submit', (e) => {
 
 
 
+window.addEventListener('DOMContentLoaded', function () {
+    const img = document.getElementById('creative-image');
+    const canvas = document.getElementById('canvas');
+    const container = document.getElementById('container');
+
+    img.addEventListener('load', function () {
+        const context = canvas.getContext('2d');
+        canvas.width = img.width;
+        canvas.height = img.height;
+
+        context.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
+        const pixels = imageData.data;
+
+        let r = 0, g = 0, b = 0;
+        const totalPixels = pixels.length / 4;
+
+        for (let i = 0; i < pixels.length; i += 4) {
+            r += pixels[i];      // Red
+            g += pixels[i + 1];  // Green
+            b += pixels[i + 2];  // Blue
+        }
+
+        r = Math.floor(r / totalPixels);
+        g = Math.floor(g / totalPixels);
+        b = Math.floor(b / totalPixels);
 
 
-const img = document.getElementById('creative-image', '.hero');
-const canvas = document.getElementById('canvas');
-const container = document.getElementById('container');
+        const blendFactor = 0.9; // 
+        r = Math.floor(r + (0 - r) * blendFactor);
+        g = Math.floor(g + (0 - g) * blendFactor);
+        b = Math.floor(b + (0 - b) * blendFactor);
 
-img.addEventListener('load', function () {
-    const context = canvas.getContext('2d');
-    canvas.width = img.width;
-    canvas.height = img.height;
-
-    context.drawImage(img, 0, 0, canvas.width, canvas.height);
-
-    const imageData = context.getImageData(0, 0, canvas.width, canvas.height);
-    const pixels = imageData.data;
-
-    let r = 0, g = 0, b = 0;
-    const totalPixels = pixels.length / 4;
-
-    for (let i = 0; i < pixels.length; i += 4) {
-        r += pixels[i];      // Red
-        g += pixels[i + 1];  // Green
-        b += pixels[i + 2];  // Blue
-    }
-
-    r = Math.floor(r / totalPixels);
-    g = Math.floor(g / totalPixels);
-    b = Math.floor(b / totalPixels);
-
-    // Blend with white to reduce color intensity (50% blending in this case)
-    const blendFactor = 0.9; // Adjust this value to control intensity (0.0 = original color, 1.0 = fully white)
-    r = Math.floor(r + (0 - r) * blendFactor);
-    g = Math.floor(g + (0 - g) * blendFactor);
-    b = Math.floor(b + (0 - b) * blendFactor);
-
-    // Set the subtle background color
-    const avgColor = `rgb(${r}, ${g}, ${b})`;
-    container.style.backgroundColor = avgColor;
+        // Set the subtle background color
+        const avgColor = `rgb(${r}, ${g}, ${b})`;
+        container.style.backgroundColor = avgColor;
+    });
 });
 
+ 
+ 
 
