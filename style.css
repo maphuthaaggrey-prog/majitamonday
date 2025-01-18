@@ -10,8 +10,17 @@
     -moz-user-select: none;     /* Firefox */
     -ms-user-select: none;      /* Internet Explorer/Edge */
     user-select: none;
-    outline: none;   
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+
+input, textarea, button, a {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+a:focus, a:visited, a:active {
+    outline: none;
+}
+
+
 @keyframes opacity {
     from {
         transform: translateY(-1%);
