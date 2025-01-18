@@ -10,6 +10,7 @@
     -moz-user-select: none;     /* Firefox */
     -ms-user-select: none;      /* Internet Explorer/Edge */
     user-select: none;
+    outline: none;   
 }
 @keyframes opacity {
     from {
@@ -29,7 +30,7 @@ body, html {
 
 }
 .hero {
-    background-image: url(./images/Hero.png);
+    background-image: url(./images/Desktop.png);
     height: 100vh;
     width: 100%;
     background-size: cover;             
@@ -42,7 +43,7 @@ body, html {
 }
 
 section {
-    padding-top: 18em;
+    padding-top: 13em;
     text-align: center;
     position: sticky;
     animation: opacity 1s ease-in-out, transition .3s ease-in-out;
@@ -56,9 +57,7 @@ section {
 
 }
 
-.logo {
-    margin-left: 3em;
-}
+
 .menu-icon {
     margin-right: 3em;
     color: var(--tertiary);
@@ -77,7 +76,7 @@ nav ul {
     list-style: none;
     border-radius: 4px;
     backdrop-filter: blur(85px);
-    background: rgba(12, 12, 12, 0.8); 
+    background: rgba(12, 12, 12, 1); 
     width: 70%;
     margin: auto;
     text-align: end;
@@ -104,9 +103,7 @@ nav ul li a {
 nav ul li a:hover {
                 font-weight: 700;
             }
-.close-btn {
-    margin: -1em;
-}
+
 
 .open {
     transform: translateX(0%);
@@ -114,12 +111,13 @@ nav ul li a:hover {
 }
 
 .logo {
-    width: 62px;
+    width: 50px;
     position: static;
+    margin-left: 3em;
 }
 
 .icons, nav, .searchimg, .logo, .menu-icon {
-    margin-top: 2em;
+    margin-top: 1.4em;
     margin-bottom: 1.5em;
 }
 .logo, .search, .navbar nav ul li {
@@ -127,6 +125,7 @@ nav ul li a:hover {
 }
 svg {
     cursor: pointer;
+    color: white;
 }
 .navbar {
     display: flex;
@@ -137,7 +136,9 @@ svg {
     top: 0;
     width: 100%;
     z-index: 100;
-    background-color: var(--background);
+    backdrop-filter: blur(85px);
+    background: rgba(12, 12, 12, 0.9);
+
 
 }
 
@@ -154,12 +155,65 @@ svg {
 
 
 }
+button svg {
+    color: white;
+    
+}
 
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+.search-bar p {
+    display: flex;
+    text-align: end;
+    margin-right: 10px;
+    justify-content: end;
+}
+
+
+.search-bar .search-anchor {
+    width: 100%;
+    text-align: center;
+    
+}
+
+.search-bar button {
+   border: none;
+   height: 36px;
+   border-bottom: 2px solid white;
+   background-color: var(--background);
+
+}
+
+
+.search-bar input[type="search"] {
+   width: 72%;
+    height: 36px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom-color: var(--tertiary);
+    background-color: var(--background);
+    outline: none;
+    color: White;
+    padding-left: 1em;
+}
+.go-back {
+
+    margin: 3em;
+}
+.search-image {
+    width: 30px;
+    margin: auto;
+    max-width: 10%;
+}
 h4 {
     text-align: start;
     width: 70%;
     margin: 1em auto;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
     color: white;
     margin-bottom: 4em;
@@ -208,7 +262,8 @@ h4 {
     font-size: 14px;
  }
 
-.highlighted-image {
+#image, .high-image {
+
     width: 70%;
     border-radius: 12px;
     margin: 2em 2em;
@@ -219,11 +274,7 @@ h4 {
     justify-content: center;   
     text-align: center;
 }
-.creatives {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, .1fr));
-    justify-content: center;
-}
+
 .browse-btn {
 
     display: flex;
@@ -239,6 +290,7 @@ h4 {
     background-color: white;
     font-weight: 600;
     margin-top: 3em;
+    cursor: pointer;
 }
 button a {
     text-decoration: none;
@@ -253,6 +305,18 @@ button a {
 #creative-details .heading {
     margin-bottom: 2em;
     font-size: 20px;
+}
+.search-bar, .search-anchor {
+    display: flex;
+    justify-content: center;
+    margin:0 2em;
+ 
+    text-decoration: none;
+
+}
+.hero-search .navbar{
+    background-color: var(--background);
+    background: none;
 }
 
 #creative-image {
@@ -272,12 +336,28 @@ button a {
 #creative-name {
     display: none;
 }
-#creative-answerOne, #creative-answerTwo, #creative-answerThree, #creative-answerFour {
+#creative-answerOne, #creative-answerTwo, #creative-answerThree, #creative-answerFour, #creative-date {
     margin: 1.3em;
     margin-top: 0;
-    margin-bottom: 2.5em;
+    margin-bottom: 3em;
     font-size: 15px;
     color: #c9c9c9;
+}
+#creative-date {
+    color: grey;
+    font-size: 14px;
+    text-decoration: underline;
+}
+div #creative-date {
+    color: grey;
+    font-size: 14px;
+    text-decoration: underline;
+}
+#se-image {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, .1fr));
+    justify-content: center;
+
 }
 
 #creative-questionOne , #creative-questionTwo, #creative-questionThree, #creative-questionFour  {
@@ -289,19 +369,38 @@ button a {
     width: 85%;
     border-radius: 3px;
 }
-.highlighted-image:hover, #creative-image:hover {
+.high-image:hover, #creative-image:hover {
     transform: scale(1.02);
 }
 
+
 #additional-questions ul {
     list-style: none;
-    margin: 1em;
+    margin: 1.7em;
     margin-top: 0;
     margin-bottom: 2em;
     color: #c9c9c9;
 }
 #additional-questions ul li {
     font-size: 15px;
+}
+
+#highlighted-image div, #highlighted-image a {
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+#image {
+    margin-bottom: 6px;
+    margin-top: 3em;
+}
+#date-created {
+    font-size: 12px;
+    color: grey;
+    font-weight: normal;
+
+
 }
 .message {
     text-align: center;
@@ -382,7 +481,7 @@ footer {
    color: white;
 }
 .footer-right form label {
-    color: #464646;
+    color: white;
     font-weight: 600;
 }
 
@@ -522,7 +621,8 @@ margin-top: 3px;
 
 
     .logo {
-        margin-left: 10em;
+        margin-left: 11em;
+        margin-bottom: 1.3em;
     }
     .menu-icon {
        display: none;
@@ -563,12 +663,12 @@ margin-top: 3px;
 
 
     .homelogo {
-        width: 60%;
+        width: 45%;
         margin-left: 6.5em;
 
     }
     section {
-        padding-top: 13em;
+        padding-top: 10em;
         width: 60%;
         margin-left: 7%;
         text-align: start;
@@ -576,10 +676,13 @@ margin-top: 3px;
     h4 {
         width: 60%;
         text-align: start;
-        margin-left: 4.5em;
+        margin-left: 4.8em;
         font-weight: normal;
     }
+    div #creative-date {
 
+        text-align: unset;
+    }
 
  
     .footer-icons {
@@ -618,10 +721,16 @@ margin-top: 3px;
         width: 40%;
 
      }
-     .highlighted-image {
+     #image, .high-image, #results-container img {
+
         width: 250px;
 
     }
+
+    .search-bar input[type="search"] {
+        width: 60%;
+
+     }
 
 .majita-mag h5 {
     margin: auto;
@@ -638,9 +747,17 @@ margin-top: 3px;
 }
 
 #creative-details {
-    width: 80%;
-    margin: 8em auto 2em;
+    width: 70%;
+    margin: 8em auto 6em;
 }
+#creative-details #se-image div, #creative-details #se-image a {
+    text-decoration: none;
+    margin: auto;
+    display: inline-block;
+    justify-content: center;
+    text-align: center;
+}
+
 
 .right {
     width: 100%;
@@ -648,17 +765,16 @@ margin-top: 3px;
 
 
 #creative-image {
-    width: 40%;
+    width: 43%;
     position: sticky;
     float: left;
     height: fit-content;
     margin: 1em;
     margin-left: 1em;
     margin-bottom: 0;
-    
 }
 #creative-img {
-    margin-right: 1.2em;
+    margin-right: 2em;
     width: 35%;
     float: right;
 
