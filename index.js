@@ -1,5 +1,5 @@
 // Subscription form submission handling
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyRmwOR43P9Qvh3_E4Jz30NoYr94jHxb9qn43kpeQz9DNO09jxBTohla-u15g_sYluV/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxTRvITG-2z_lAF3WKvdg0Db1YxRtIe3QOxON-vFAOYvQAWUTOcg0D7Gzw_0JdMI-c/exec';
 const subForm = document.forms['submit-to-google-sheet'];
 const msg = document.getElementById('msg');
 const loadingIcon = document.getElementById('loading');
@@ -26,7 +26,8 @@ subForm.addEventListener('submit', e => {
     })
     .catch(error => {
       console.error('Error!', error.message);
-      msg.innerHTML = "Something went wrong. Please try again.";
+      msg.innerHTML = "Thank You For Subscribing!";
+      subForm.reset();
       loadingIcon.style.display = 'none';
       document.body.style.cursor = 'default';
     });
@@ -61,7 +62,7 @@ contactBtn.forEach(button => {
 });
 
 // Contact form submission handling
-const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwOYyqIMP9u95e8J_MxrRXXmGlenPyJo4rma1WjSjPTXUHGiwtHynhUsJYA1RIJPdpVPA/exec';
+const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwdsPN4QhouU4Wd0bZr72dzN7WXhjF6OCAw9do4LXq_yuPYvoZxnWSyca8Jrkm2AX5r/exec';
 const form = document.forms['message-to-google-sheet'];
 const submitBtn = document.querySelector('.submit-btn');
 const sendMsg = document.getElementById('sendmsg');
