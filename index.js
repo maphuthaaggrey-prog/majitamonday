@@ -69,9 +69,14 @@ function openContact() {
 
 
 
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
+const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwNv37XvKU4aFrWU48MyIvrmK_zIerA0kfbhMoc31lZs-gpznTOOZAQJGoGnvVArHgD0w/exec';  // Replace with your Google Script URL
+const form = document.forms['message-to-google-sheet'];
+const submitBtn = document.querySelector('.submit-btn');
+const sendMsg = document.getElementById('sendmsg');
+const loading = document.getElementById('subloading');
 
+// Form Validation
+form.addEventListener('submit', (e) => {
     document.querySelectorAll('.error-message').forEach((el) => el.remove());
 
     const firstName = document.getElementById('first-name');
@@ -118,15 +123,48 @@ form.addEventListener('submit', (e) => {
         valid = false;
     }
 
- 
+    // Prevent submission if the form is invalid
     if (!valid) {
         e.preventDefault();
+    } else {
+        // If valid, proceed with sending the form data to Google Sheets
+        setLoadingState(true);  // Set loading state
+        e.preventDefault(); // Prevent default form submission
+
+
+        fetch(contactScriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+
+
+                sendMsg.innerHTML = "Thank You For Contacting Us!";
+                setTimeout(() => { sendMsg.innerHTML = ""; }, 5000);
+                form.reset();  // Reset the form after submission
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                sendMsg.innerHTML = "Something went wrong. Please try again.";
+                 // Hide loading icon and reset cursor even in case of error
+
+            })
+            .finally(() => {
+                setLoadingState(false);  // Reset loading state
+            });
     }
 });
 
+// Add loading state
+function setLoadingState(isLoading) {
+    if (isLoading) {
+        submitBtn.disabled = true;
+        submitBtn.value = "Submitting...";
 
+    } else {
+        submitBtn.disabled = false;
+        submitBtn.value = "Submit";
+        document.body.style.cursor = "default";  // Reset cursor
 
-
+    }
+}
 
 window.addEventListener('DOMContentLoaded', function () {
     const img = document.getElementById('creative-image');
@@ -170,4 +208,3 @@ window.addEventListener('DOMContentLoaded', function () {
 
  
  
-
