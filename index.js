@@ -1,4 +1,5 @@
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyKpPX1bBtrFYWsfGkt9cz1mX3ZUO5EeGJTRI3d9Ie142cLU2--yev5VUGorLxr-dhG/exec';
+// Subscription form submission handling
+const scriptURL = 'https://script.google.com/macros/s/AKfycbyRmwOR43P9Qvh3_E4Jz30NoYr94jHxb9qn43kpeQz9DNO09jxBTohla-u15g_sYluV/exec';
 const subForm = document.forms['submit-to-google-sheet'];
 const msg = document.getElementById('msg');
 const loadingIcon = document.getElementById('loading');
@@ -6,34 +7,32 @@ const loadingIcon = document.getElementById('loading');
 subForm.addEventListener('submit', e => {
   e.preventDefault();
 
-  // Show loading icon and change cursor to 'wait'
+  // Show loading icon and disable the form
   loadingIcon.style.display = 'block';
- 
+  document.body.style.cursor = 'wait';
 
   fetch(scriptURL, { method: 'POST', body: new FormData(subForm) })
     .then(response => {
-      // Hide loading icon and reset cursor
       loadingIcon.style.display = 'none';
       document.body.style.cursor = 'default';
 
-      // Show success message
-      msg.innerHTML = "Thank You For Subscribing";
-      setTimeout(function(){
-        msg.innerHTML = "";
-      }, 5000);
-
-      // Reset form
-      subForm.reset();
+      if (response.ok) {
+        msg.innerHTML = "Thank You For Subscribing!";
+        setTimeout(() => { msg.innerHTML = ""; }, 5000);
+        subForm.reset();
+      } else {
+        throw new Error('Network response was not ok.');
+      }
     })
     .catch(error => {
       console.error('Error!', error.message);
-      
-      // Hide loading icon and reset cursor even in case of error
+      msg.innerHTML = "Something went wrong. Please try again.";
       loadingIcon.style.display = 'none';
       document.body.style.cursor = 'default';
     });
 });
 
+// Menu and Contact button handling
 const menu = document.querySelector('nav ul');
 const menuBtn = document.querySelector('.menu-icon');
 const closeBtn = document.querySelector('.close-btn');
@@ -41,129 +40,111 @@ const contact = document.querySelector('.footer-cont');
 const contactBtn = document.querySelectorAll('.contactButton');
 const cancelBtn = document.querySelector('.cancelBtn');
 
-
-
 menuBtn.addEventListener('click', () => {
-    menu.classList.add('open')
-    contact.classList.remove('open-cont')
+    menu.classList.add('open');
+    contact.classList.remove('open-cont');
 });
 
 closeBtn.addEventListener('click', () => {
-    menu.classList.remove('open')
+    menu.classList.remove('open');
 });
 
 cancelBtn.addEventListener('click', () => {
-    contact.classList.remove('open-cont')
+    contact.classList.remove('open-cont');
 });
-
-
 
 contactBtn.forEach(button => {
-    button.addEventListener('click', openContact);
+    button.addEventListener('click', () => {
+        contact.classList.add('open-cont');
+        menu.classList.remove('open');
+    });
 });
 
-function openContact() {
-    contact.classList.add('open-cont')
-    menu.classList.remove('open')
-}
-
-
-
-const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwOYyqIMP9u95e8J_MxrRXXmGlenPyJo4rma1WjSjPTXUHGiwtHynhUsJYA1RIJPdpVPA/exec';  // Replace with your Google Script URL
+// Contact form submission handling
+const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwOYyqIMP9u95e8J_MxrRXXmGlenPyJo4rma1WjSjPTXUHGiwtHynhUsJYA1RIJPdpVPA/exec';
 const form = document.forms['message-to-google-sheet'];
 const submitBtn = document.querySelector('.submit-btn');
 const sendMsg = document.getElementById('sendmsg');
 const loading = document.getElementById('subloading');
 
-// Form Validation
-form.addEventListener('submit', (e) => {
-    document.querySelectorAll('.error-message').forEach((el) => el.remove());
+// Form validation and submission
+form.addEventListener('submit', e => {
+  document.querySelectorAll('.error-message').forEach(el => el.remove());
 
-    const firstName = document.getElementById('first-name');
-    const email = document.getElementById('email');
-    const phone = document.getElementById('phone');
-    const message = document.getElementById('message');
-    let valid = true; 
+  const firstName = document.getElementById('first-name');
+  const email = document.getElementById('email');
+  const phone = document.getElementById('phone');
+  const message = document.getElementById('message');
+  let valid = true;
 
-    if (firstName.value.trim() === '') {
-        const nameInput = form.querySelector('input[name="first-name"]');
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = 'Name is required!';
-        errorMessage.classList.add('error-message');
-        nameInput.after(errorMessage);
-        valid = false;
-    }
+  if (firstName.value.trim() === '') {
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Name is required!';
+    errorMessage.classList.add('error-message');
+    firstName.after(errorMessage);
+    valid = false;
+  }
 
-    const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
-    if (!email.value.trim().match(emailPattern)) {
-        const emailInput = form.querySelector('input[name="email"]');
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = 'Valid email is required!';
-        errorMessage.classList.add('error-message');
-        emailInput.after(errorMessage);
-        valid = false;
-    }
+  const emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+  if (!email.value.trim().match(emailPattern)) {
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Valid email is required!';
+    errorMessage.classList.add('error-message');
+    email.after(errorMessage);
+    valid = false;
+  }
 
-    const phonePattern = /^[0-9]{10}$/;
-    if (!phone.value.trim().match(phonePattern)) {
-        const phoneInput = form.querySelector('input[name="phone"]');
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = 'A valid 10-digit phone number is required.';
-        errorMessage.classList.add('error-message');
-        phoneInput.after(errorMessage);
-        valid = false;
-    }
+  const phonePattern = /^[0-9]{10}$/;
+  if (!phone.value.trim().match(phonePattern)) {
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'A valid 10-digit phone number is required.';
+    errorMessage.classList.add('error-message');
+    phone.after(errorMessage);
+    valid = false;
+  }
 
-    if (message.value.trim() === '') {
-        const messageInput = form.querySelector('textarea[name="message"]');
-        const errorMessage = document.createElement('p');
-        errorMessage.textContent = 'Message is required.';
-        errorMessage.classList.add('error-message');
-        messageInput.after(errorMessage);
-        valid = false;
-    }
+  if (message.value.trim() === '') {
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Message is required.';
+    errorMessage.classList.add('error-message');
+    message.after(errorMessage);
+    valid = false;
+  }
 
-    // Prevent submission if the form is invalid
-    if (!valid) {
-        e.preventDefault();
-    } else {
-        // If valid, proceed with sending the form data to Google Sheets
-        setLoadingState(true);  // Set loading state
-        e.preventDefault(); // Prevent default form submission
+  if (!valid) {
+    e.preventDefault();
+  } else {
+    // Form is valid, submit data
+    setLoadingState(true); // Set loading state
+    e.preventDefault();
 
-
-        fetch(contactScriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-
-
-                sendMsg.innerHTML = "Thank You For Contacting Us!";
-                setTimeout(() => { sendMsg.innerHTML = ""; }, 5000);
-                form.reset();  // Reset the form after submission
-            })
-            .catch(error => {
-                console.error('Error!', error.message);
-                sendMsg.innerHTML = "Something went wrong. Please try again.";
-                 // Hide loading icon and reset cursor even in case of error
-
-            })
-            .finally(() => {
-                setLoadingState(false);  // Reset loading state
-            });
-    }
+    fetch(contactScriptURL, { method: 'POST', body: new FormData(form) })
+      .then(response => {
+        sendMsg.innerHTML = "Thank You For Contacting Us!";
+        setTimeout(() => { sendMsg.innerHTML = ""; }, 5000);
+        form.reset();
+      })
+      .catch(error => {
+        console.error('Error!', error.message);
+        sendMsg.innerHTML = "Something went wrong. Please try again.";
+      })
+      .finally(() => {
+        setLoadingState(false); // Reset loading state
+      });
+  }
 });
 
-// Add loading state
+// Add loading state for contact form
 function setLoadingState(isLoading) {
-    if (isLoading) {
-        submitBtn.disabled = true;
-        submitBtn.value = "Submitting...";
-
-    } else {
-        submitBtn.disabled = false;
-        submitBtn.value = "Submit";
-        document.body.style.cursor = "default";  // Reset cursor
-
-    }
+  if (isLoading) {
+    submitBtn.disabled = true;
+    submitBtn.value = "Submitting...";
+    document.body.style.cursor = 'wait';
+  } else {
+    submitBtn.disabled = false;
+    submitBtn.value = "Submit";
+    document.body.style.cursor = 'default';
+  }
 }
 
 window.addEventListener('DOMContentLoaded', function () {
