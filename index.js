@@ -69,7 +69,7 @@ function openContact() {
 
 
 
-const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwNv37XvKU4aFrWU48MyIvrmK_zIerA0kfbhMoc31lZs-gpznTOOZAQJGoGnvVArHgD0w/exec';  // Replace with your Google Script URL
+const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwOYyqIMP9u95e8J_MxrRXXmGlenPyJo4rma1WjSjPTXUHGiwtHynhUsJYA1RIJPdpVPA/exec';  // Replace with your Google Script URL
 const form = document.forms['message-to-google-sheet'];
 const submitBtn = document.querySelector('.submit-btn');
 const sendMsg = document.getElementById('sendmsg');
