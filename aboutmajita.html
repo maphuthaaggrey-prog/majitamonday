@@ -60,28 +60,26 @@
         </div>
 
         <div class="footer-cont" id="footer-cont">
-            <form action="message.html">
-                <p class="send-message">Contact Us</p>
-                <fieldset>
-                    <label for="first-name">Enter Your Name: <input id="first-name" name="first-name" type="text"
-                            placeholder="Majita" />
-    
-                    </label>
-                    <label for="email">Enter Your Email: <input id="email" name="email" type="email"
-                            placeholder="majitamagg@gmail.com" />
-    
-                    </label>
-                    <label for="phone">Enter Phone number: <input id="phone" name="phone" type="tel"
-                            placeholder="0765987654" />
-    
-                    </label>
-                    <label for="message">Message:
-                        <textarea id="message" name="message" rows="5" cols="30" placeholder="Your Enquiry"></textarea>
-                    </label>
-                </fieldset>
-                <input type="submit" value="Submit" name="send-message" class="submit-btn" />
-                <h5 class="cancelBtn">Cancel</h5>
-            </form>        
+            <form class="footer" name="message-to-google-sheet">
+            <p class="send-message">Contact Us</p>
+            <fieldset>
+                <label for="first-name">Enter Your Name: 
+                    <input id="first-name" name="first-name" type="text" placeholder="Majita"  />
+                </label>
+                <label for="email">Enter Your Email: 
+                    <input id="email" name="email" type="email" placeholder="majitamagg@gmail.com"/>
+                </label>
+                <label for="phone">Enter Phone number: 
+                    <input id="phone" name="phone" type="tel" placeholder="0765987654"  />
+                </label>
+                <label for="message">Message:
+                    <textarea id="message" name="message" rows="5" cols="30" placeholder="Your Enquiry" ></textarea>
+                </label>
+            </fieldset>
+            <input type="submit" value="Submit" name="send-message" class="submit-btn" />
+            <p style="color: rgb(24, 117, 24); margin-top: 10px; font-weight: 600;" id="sendmsg"></p>
+            <h5 class="cancelBtn">Cancel</h5>        
+        </form>           
             </div>
     
     
