@@ -62,7 +62,7 @@ contactBtn.forEach(button => {
 });
 
 // Contact form submission handling
-const contactScriptURL = 'https://script.google.com/macros/s/AKfycbwdsPN4QhouU4Wd0bZr72dzN7WXhjF6OCAw9do4LXq_yuPYvoZxnWSyca8Jrkm2AX5r/exec';
+const contactScriptURL = 'https://script.google.com/macros/s/AKfycbxeTH7MzXUV4n-_trYR9PRESKrjjU7Ggt2ktLQc-VghrwIhMm8lOl8TUUx6HEbl3qz2Sg/exec';
 const form = document.forms['message-to-google-sheet'];
 const submitBtn = document.querySelector('.submit-btn');
 const sendMsg = document.getElementById('sendmsg');
