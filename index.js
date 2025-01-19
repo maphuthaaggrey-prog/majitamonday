@@ -27,6 +27,7 @@ subForm.addEventListener('submit', e => {
     .catch(error => {
       console.error('Error!', error.message);
       msg.innerHTML = "Thank You For Subscribing!";
+      setTimeout(() => { msg.innerHTML = ""; }, 5000);
       subForm.reset();
       loadingIcon.style.display = 'none';
       document.body.style.cursor = 'default';
