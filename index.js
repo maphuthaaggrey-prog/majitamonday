@@ -1,5 +1,5 @@
 // Subscription form submission handling
-const scriptURL = 'https://script.google.com/macros/s/AKfycbxTRvITG-2z_lAF3WKvdg0Db1YxRtIe3QOxON-vFAOYvQAWUTOcg0D7Gzw_0JdMI-c/exec';
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxqaNpKRORm4Tk7CRHZmfmCaTvFrWhxKw9_uXnBCrCtusFhY0M074a0CmirZ8B_ROk5/exec';
 const subForm = document.forms['submit-to-google-sheet'];
 const msg = document.getElementById('msg');
 const loadingIcon = document.getElementById('loading');
