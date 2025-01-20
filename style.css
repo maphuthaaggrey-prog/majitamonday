@@ -300,11 +300,12 @@ h4 {
     font-weight: 600;
     margin-top: 3em;
     cursor: pointer;
+    color: black;
 }
-button a {
+.browse-btn a {
     text-decoration: none;
     font-family: 'Poppins';
-    color: black;
+    color: black !important;
 }
 #creative-details {
     width: 100%;
