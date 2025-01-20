@@ -173,6 +173,9 @@ a {
     text-decoration: none;
 
 }
+#se-image a{
+    text-align: center;
+}
 
 .search-bar p {
     display: flex;
@@ -208,6 +211,7 @@ a {
     outline: none;
     color: White;
     padding-left: 1em;
+    font-size: 16px;
 }
 .go-back {
 
